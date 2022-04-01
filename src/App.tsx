@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 type Todo = {
   value: string
@@ -19,13 +19,17 @@ export const App = () => {
     setText('')
   }
 
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value)
+  }
+
   return (
     <div>
       <form onSubmit={(e) => {
         e.preventDefault();
         handleOnSubmit();
       }}>
-        <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+        <input type="text" value={text} onChange={(e) => handleOnChange(e)} />
         <input
           type="submit"
           value="追加"
