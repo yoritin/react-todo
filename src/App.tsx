@@ -17,12 +17,25 @@ export const App = () => {
       id: new Date().getTime(),
     };
 
-    setTodos([newTodo, ...todos])
-    setText('')
+    setTodos([newTodo, ...todos]);
+    setText('');
   }
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value)
+    setText(e.target.value);
+  }
+
+  const handleOnEdit = (id: number, value: string) => {
+    const deepCopy = todos.map((todo) => ({ ...todo }));
+
+    const newTodos = deepCopy.map((todo) => {
+      if (todo.id === id) {
+        todo.value = value;
+      }
+      return todo;
+    });
+
+    setTodos(newTodos);
   }
 
   return (
@@ -46,7 +59,7 @@ export const App = () => {
             <input
               type="text"
               value={todo.value}
-              onChange={(e) => e.preventDefault}
+              onChange={(e) => handleOnEdit(todo.id, e.target.value)}
             />
           </li>
         )
