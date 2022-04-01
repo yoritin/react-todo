@@ -90,7 +90,7 @@ export const App = () => {
                 type="checkbox"
                 disabled={todo.removed}
                 checked={todo.checked}
-                onChange={(e) => handleOnCheck(todo.id, todo.checked)}
+                onChange={() => handleOnCheck(todo.id, todo.checked)}
               />
               <input
                 type="text"
@@ -98,7 +98,7 @@ export const App = () => {
                 value={todo.value}
                 onChange={(e) => handleOnEdit(todo.id, e.target.value)}
               />
-              <button onClick={(e) => handleOnRemove(todo.id, todo.removed)}>
+              <button onClick={() => handleOnRemove(todo.id, todo.removed)}>
                 {todo.removed ? '復元' : '削除'}
               </button>
             </li>
