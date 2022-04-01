@@ -37,6 +37,19 @@ export const App = () => {
     setTodos(newTodos)
   }
 
+  const handleOnEdit = (id: number, value: string) => {
+    const deepCopy = todos.map((todo) => ({ ...todo }))
+
+    const newTodos = deepCopy.map((todo) => {
+      if (todo.id === id) {
+        todo.value = value
+      }
+      return todo
+    })
+
+    setTodos(newTodos)
+  }
+
   return (
     <div>
       <form
