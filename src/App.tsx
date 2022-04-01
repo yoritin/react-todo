@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 type Todo = {
-  value: string
+  value: string;
+  readonly id: number;
 }
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
     if (!text) return;
     const newTodo: Todo = {
       value: text,
+      id: new Date().getTime(),
     };
 
     setTodos([newTodo, ...todos])
@@ -36,6 +38,12 @@ export const App = () => {
           onSubmit={(e) => e.preventDefault()}
         />
       </form>
+      <ul>
+
+      {todos.map((todo) => {
+        return <li key={todo.id}>{todo.value}</li>
+      })}
+      </ul>
     </div>
   );
 };
