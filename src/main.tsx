@@ -1,10 +1,10 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import Router from './router'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Router />
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 )
