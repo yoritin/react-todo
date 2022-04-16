@@ -1,6 +1,7 @@
-import { useTodo, Filter } from './hooks/useTodo'
+import Nav from '../components/nav'
+import { useTodo, Filter } from '../hooks/useTodo'
 
-export const App = () => {
+export const Todo: React.VFC = () => {
   const {
     text,
     todos,
@@ -16,7 +17,8 @@ export const App = () => {
   } = useTodo()
 
   return (
-    <div>
+    <>
+      <Nav />
       <select
         defaultValue={'all'}
         onChange={(e) => setFilter(e.target.value as Filter)}
@@ -77,6 +79,8 @@ export const App = () => {
           )
         })}
       </ul>
-    </div>
+    </>
   )
 }
+
+export default Todo
