@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import Nav from './components/nav'
+
 import { useTodo, Filter } from './hooks/useTodo'
 
 export const App: React.VFC = () => {
@@ -18,9 +19,7 @@ export const App: React.VFC = () => {
 
   return (
     <div>
-      <nav>
-        <Link to="/todo">Todo</Link>
-      </nav>
+      <Nav />
       <select
         defaultValue={'all'}
         onChange={(e) => setFilter(e.target.value as Filter)}
