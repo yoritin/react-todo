@@ -1,5 +1,5 @@
-import Nav from '../components/nav'
-import { useTodo, Filter } from '../hooks/useTodo'
+import Nav from '@/components/nav'
+import { useTodo, Filter } from '@/hooks/useTodo'
 
 export const Todo: React.VFC = () => {
   const {
